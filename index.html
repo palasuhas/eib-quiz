@@ -1,9 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Einbürgerungstest — Berlin Quiz</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#050505">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -216,6 +220,178 @@
             background: var(--lime);
             color: #000;
             box-shadow: 0 0 8px var(--lime-glow);
+        }
+
+        /* Progress Dashboard */
+        .progress-dashboard {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            backdrop-filter: blur(12px);
+        }
+        .progress-dashboard h2 {
+            font-size: 1.15rem;
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-head);
+            letter-spacing: -0.01em;
+        }
+        .dashboard-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: var(--spacing-lg);
+        }
+        .dashboard-stat-box {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-align: center;
+        }
+        .dashboard-stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+        .dashboard-stat-val {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--lime);
+        }
+        .dashboard-categories {
+            display: grid;
+            gap: 10px;
+        }
+        .dash-cat-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .dash-cat-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+        .dash-cat-bar {
+            height: 4px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        html.light .dash-cat-bar {
+            background: rgba(0,0,0,0.08);
+        }
+        .dash-cat-fill {
+            height: 100%;
+            background: var(--lime);
+            width: 0%;
+            transition: width 0.6s var(--ease-spring);
+        }
+
+        /* Question Controls & Speaker */
+        .speak-btn, .bookmark-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 5px var(--spacing-md);
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.10em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.25s var(--ease-spring);
+            white-space: nowrap;
+        }
+        .speak-btn:hover, .bookmark-btn:hover {
+            background: var(--lime-dim);
+            border-color: var(--border-hover);
+            box-shadow: 0 0 14px var(--lime-glow);
+        }
+        .speak-btn.speaking {
+            background: var(--lime);
+            color: #000;
+            border-color: var(--lime);
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+        .bookmark-btn.active {
+            color: var(--lime);
+            border-color: var(--lime);
+            background: var(--lime-dim);
+            box-shadow: 0 0 14px var(--lime-glow);
+        }
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 8px var(--lime-glow); }
+            to { box-shadow: 0 0 18px var(--lime-glow); }
+        }
+
+        /* Translatable words & tooltips */
+        .translatable-word {
+            cursor: pointer;
+            border-bottom: 1px dashed var(--muted);
+            transition: color 0.15s, border-bottom-color 0.15s;
+            position: relative;
+            display: inline-block;
+        }
+        .translatable-word:hover {
+            color: var(--lime);
+            border-bottom-color: var(--lime);
+        }
+        .word-tooltip {
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            background: rgba(10, 10, 10, 0.95);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            white-space: nowrap;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px var(--border);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s var(--ease-spring), transform 0.2s var(--ease-spring);
+            backdrop-filter: blur(8px);
+        }
+        html.light .word-tooltip {
+            background: rgba(250, 250, 245, 0.98);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 0 0 1px var(--border);
+        }
+        .word-tooltip.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+        .word-tooltip-arrow {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(10, 10, 10, 0.95) transparent transparent transparent;
+            width: 0;
+            height: 0;
+        }
+        html.light .word-tooltip-arrow {
+            border-color: rgba(250, 250, 245, 0.98) transparent transparent transparent;
         }
 
         /* Main content */
@@ -1786,6 +1962,32 @@
                 <span class="study-plan-teaser-arrow">↓ Anzeigen</span>
             </div>
 
+            <!-- Progress Dashboard -->
+            <div class="progress-dashboard" id="progressDashboard">
+                <h2>📊 Dein Lernfortschritt</h2>
+                <div class="dashboard-stats-grid">
+                    <div class="dashboard-stat-box">
+                        <div class="dashboard-stat-label">Fortschritt</div>
+                        <div class="dashboard-stat-val" id="dashProgressVal">0%</div>
+                    </div>
+                    <div class="dashboard-stat-box">
+                        <div class="dashboard-stat-label">Beantwortet</div>
+                        <div class="dashboard-stat-val" id="dashAnsweredVal">0/320</div>
+                    </div>
+                    <div class="dashboard-stat-box">
+                        <div class="dashboard-stat-label">Ø Prüfung</div>
+                        <div class="dashboard-stat-val" id="dashExamAvgVal">—</div>
+                    </div>
+                    <div class="dashboard-stat-box">
+                        <div class="dashboard-stat-label">Tricky Fragen</div>
+                        <div class="dashboard-stat-val" id="dashTrickyVal">0</div>
+                    </div>
+                </div>
+                <div class="dashboard-categories" id="dashCategories">
+                    <!-- Categories populated dynamically by JS -->
+                </div>
+            </div>
+
             <!-- Mode Selection (primary CTA — above the fold) -->
             <div class="modes-grid" id="modesGrid">
                 <!-- Populated by JavaScript -->
@@ -1829,7 +2031,11 @@
                                 <span class="question-num" id="questionNum"></span>
                                 <span class="question-category" id="questionCategory"></span>
                             </div>
-                            <button class="bilingual-toggle" id="bilingualToggle">🌐 EN</button>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="speak-btn" id="speakBtn" title="Frage vorlesen">🔊 Vorlesen</button>
+                                <button class="bookmark-btn" id="bookmarkBtn" title="Frage merken">☆ Bookmark</button>
+                                <button class="bilingual-toggle" id="bilingualToggle">🌐 EN</button>
+                            </div>
                         </div>
 
                         <div class="question-text" id="questionText" tabindex="-1"></div>
@@ -2274,6 +2480,245 @@
         ];
 
         // ============================================================
+        // PERSISTENCE & ANALYTICS MANAGER (historyManager)
+        // ============================================================
+        const historyManager = {
+            getHistory() {
+                const raw = localStorage.getItem('eib_study_history');
+                if (raw) {
+                    try {
+                        const parsed = JSON.parse(raw);
+                        if (parsed && parsed.questionStats && parsed.examRuns) {
+                            return parsed;
+                        }
+                    } catch (e) {
+                        console.error('Failed to parse study history', e);
+                    }
+                }
+                return { questionStats: {}, examRuns: [] };
+            },
+            saveHistory(history) {
+                localStorage.setItem('eib_study_history', JSON.stringify(history));
+            },
+            recordAnswer(qId, isCorrect) {
+                const history = this.getHistory();
+                if (!history.questionStats[qId]) {
+                    history.questionStats[qId] = { correctCount: 0, incorrectCount: 0, bookmarked: false };
+                }
+                const stat = history.questionStats[qId];
+                if (isCorrect) {
+                    stat.correctCount++;
+                } else {
+                    stat.incorrectCount++;
+                }
+                this.saveHistory(history);
+            },
+            recordExamRun(score, passed) {
+                const history = this.getHistory();
+                history.examRuns.push({ date: Date.now(), score, passed });
+                if (history.examRuns.length > 20) {
+                    history.examRuns.shift();
+                }
+                this.saveHistory(history);
+            },
+            toggleBookmark(qId) {
+                const history = this.getHistory();
+                if (!history.questionStats[qId]) {
+                    history.questionStats[qId] = { correctCount: 0, incorrectCount: 0, bookmarked: false };
+                }
+                const stat = history.questionStats[qId];
+                stat.bookmarked = !stat.bookmarked;
+                this.saveHistory(history);
+                return stat.bookmarked;
+            },
+            isBookmarked(qId) {
+                const history = this.getHistory();
+                return history.questionStats[qId]?.bookmarked || false;
+            },
+            getBookmarkedIds() {
+                const history = this.getHistory();
+                return Object.keys(history.questionStats)
+                    .filter(id => history.questionStats[id].bookmarked)
+                    .map(Number);
+            },
+            getTrickyIds() {
+                const history = this.getHistory();
+                return Object.keys(history.questionStats)
+                    .filter(id => {
+                        const stat = history.questionStats[id];
+                        return stat.incorrectCount > stat.correctCount;
+                    })
+                    .map(Number);
+            }
+        };
+
+        // ============================================================
+        // OFFLINE GLOSSARY & DICTIONARY
+        // ============================================================
+        const GLOSSARY = {
+            "grundgesetz": "Basic Law (the German constitution)",
+            "bundestag": "Federal Parliament (German parliament)",
+            "bundesrat": "Federal Council (represents the states)",
+            "bundespräsident": "Federal President (head of state)",
+            "bundeskanzler": "Federal Chancellor (head of government)",
+            "meinungsfreiheit": "Freedom of speech/opinion",
+            "religionsfreiheit": "Freedom of religion",
+            "rechtsstaat": "State governed by the rule of law",
+            "sozialstaat": "Welfare state",
+            "opposition": "Opposition (parties not in government)",
+            "gewaltenteilung": "Separation of powers",
+            "gesetzgebung": "Legislation/Legislative power",
+            "rechtsprechung": "Judiciary/Judicial power",
+            "regierung": "Government/Executive power",
+            "bundesland": "Federal state",
+            "bundesländer": "Federal states",
+            "wahlrecht": "Right to vote",
+            "wahlen": "Elections",
+            "verfassung": "Constitution",
+            "verfassungswidrig": "Unconstitutional",
+            "koalition": "Coalition (government alliance)",
+            "abgeordnete": "Members of Parliament / deputies",
+            "demokratie": "Democracy",
+            "brd": "Federal Republic of Germany",
+            "ddr": "German Democratic Republic (East Germany)",
+            "fraktion": "Parliamentary group/faction",
+            "gesetz": "Law",
+            "gesetze": "Laws",
+            "gericht": "Court",
+            "gerichte": "Courts",
+            "bündnis": "Alliance",
+            "staatsbürgerschaft": "Citizenship",
+            "einbürgerung": "Naturalization/Citizenship process",
+            "grundrechte": "Fundamental/Basic rights",
+            "menschenwürde": "Human dignity",
+            "zweitstimme": "Second vote (for political party)",
+            "erststimme": "First vote (for direct local candidate)",
+            "landtag": "State parliament",
+            "gewerkschaft": "Trade union",
+            "zensur": "Censorship",
+            "oppositionspartei": "Opposition party",
+            "bundeswehr": "German Federal Armed Forces",
+            "staatsgewalt": "State authority/power",
+            "diktatur": "Dictatorship",
+            "monarchie": "Monarchy",
+            "repräsentanten": "Representatives",
+            "wappen": "Coat of arms",
+            "bundeswappen": "Federal coat of arms",
+            "nationalhymne": "National anthem"
+        };
+
+        // ============================================================
+        // TEXT TO SPEECH (TTS) SYSTEM
+        // ============================================================
+        let currentUtterance = null;
+        
+        function speakQuestion() {
+            const btn = document.getElementById('speakBtn');
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+                btn.innerHTML = '🔊 Vorlesen';
+                btn.classList.remove('speaking');
+                return;
+            }
+
+            const q = state.currentQuestions[state.currentQuestionIndex];
+            let textToRead = `${q.de}. `;
+            q.options.forEach((opt, idx) => {
+                textToRead += `Antwort ${String.fromCharCode(65 + idx)}: ${opt}. `;
+            });
+
+            currentUtterance = new SpeechSynthesisUtterance(textToRead);
+            currentUtterance.lang = 'de-DE';
+            
+            currentUtterance.onstart = () => {
+                btn.innerHTML = '⏹ Stopp';
+                btn.classList.add('speaking');
+            };
+
+            currentUtterance.onend = () => {
+                btn.innerHTML = '🔊 Vorlesen';
+                btn.classList.remove('speaking');
+            };
+
+            currentUtterance.onerror = () => {
+                btn.innerHTML = '🔊 Vorlesen';
+                btn.classList.remove('speaking');
+            };
+
+            window.speechSynthesis.speak(currentUtterance);
+        }
+
+        // ============================================================
+        // TAP-TO-TRANSLATE WORD TOOLTIPS
+        // ============================================================
+        let activeTooltip = null;
+
+        function showWordTooltip(el, word, isFallback = false) {
+            if (activeTooltip) {
+                activeTooltip.remove();
+                activeTooltip = null;
+            }
+
+            const definition = isFallback 
+                ? `Glossary lookup failed. Search on dict.cc / Leo?`
+                : GLOSSARY[word];
+
+            const tooltip = document.createElement('div');
+            tooltip.className = 'word-tooltip';
+            
+            if (isFallback) {
+                tooltip.innerHTML = `
+                    <span>"${word}": ${definition}</span>
+                    <div style="margin-top: 6px; display: flex; gap: 8px;">
+                        <a href="https://www.dict.cc/?s=${encodeURIComponent(word)}" target="_blank" style="color:var(--lime); text-decoration:underline; font-size:0.75rem;">Dict.cc</a>
+                        <a href="https://dict.leo.org/englisch-deutsch/${encodeURIComponent(word)}" target="_blank" style="color:var(--lime); text-decoration:underline; font-size:0.75rem;">Leo.org</a>
+                    </div>
+                    <div class="word-tooltip-arrow"></div>
+                `;
+            } else {
+                tooltip.innerHTML = `
+                    <strong>${word}</strong>: ${definition}
+                    <div class="word-tooltip-arrow"></div>
+                `;
+            }
+
+            document.body.appendChild(tooltip);
+            activeTooltip = tooltip;
+
+            const rect = el.getBoundingClientRect();
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            tooltip.style.left = (rect.left + rect.width / 2 + scrollLeft) + 'px';
+            tooltip.style.top = (rect.top - 10 + scrollTop - tooltip.offsetHeight) + 'px';
+
+            requestAnimationFrame(() => {
+                tooltip.classList.add('show');
+            });
+
+            event.stopPropagation();
+        }
+
+        document.addEventListener('click', () => {
+            if (activeTooltip) {
+                activeTooltip.remove();
+                activeTooltip = null;
+            }
+        });
+
+        function renderTranslatableQuestion(germanText) {
+            const words = germanText.split(/(\s+)/);
+            return words.map(token => {
+                if (/^\s+$/.test(token)) return token;
+                const cleanWord = token.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "").toLowerCase();
+                if (GLOSSARY[cleanWord]) {
+                    return `<span class="translatable-word" onclick="showWordTooltip(this, '${cleanWord}')">${token}</span>`;
+                }
+                return `<span class="translatable-word" onclick="showWordTooltip(this, '${cleanWord}', true)">${token}</span>`;
+            }).join('');
+        }
+
+        // ============================================================
         // APPLICATION STATE
         // ============================================================
         let state = {
@@ -2336,9 +2781,78 @@
         // ============================================================
         // HOME SCREEN
         // ============================================================
+        function getQuestionCategory(q) {
+            if (q.berlin) return { de: "Land Berlin", en: "State of Berlin" };
+            if (q.id <= 100) return { de: "Leben in der Demokratie", en: "Living in Democracy" };
+            if (q.id <= 200) return { de: "Geschichte und Verantwortung", en: "History & Responsibility" };
+            if (q.id <= 300) return { de: "Mensch und Gesellschaft", en: "People & Society" };
+            return { de: "Erweiterte Fragen", en: "Extended Questions" };
+        }
+
+        function updateProgressDashboard() {
+            const history = historyManager.getHistory();
+            const stats = history.questionStats;
+
+            const totalQuestions = 320;
+            const masteredIds = Object.keys(stats).filter(id => stats[id].correctCount > 0).map(Number);
+            const answeredIds = Object.keys(stats).filter(id => (stats[id].correctCount + stats[id].incorrectCount) > 0).map(Number);
+
+            const progressPct = totalQuestions > 0 ? Math.round((masteredIds.length / totalQuestions) * 100) : 0;
+            
+            document.getElementById('dashProgressVal').textContent = `${progressPct}%`;
+            document.getElementById('dashAnsweredVal').textContent = `${answeredIds.length}/${totalQuestions}`;
+
+            const examRuns = history.examRuns || [];
+            if (examRuns.length > 0) {
+                const totalScore = examRuns.reduce((sum, run) => sum + run.score, 0);
+                const avgScore = Math.round(totalScore / examRuns.length);
+                const passRate = Math.round((examRuns.filter(r => r.passed).length / examRuns.length) * 100);
+                document.getElementById('dashExamAvgVal').textContent = `${avgScore}/33 (${passRate}% best.)`;
+            } else {
+                document.getElementById('dashExamAvgVal').textContent = '—';
+            }
+
+            const bookmarkedIds = historyManager.getBookmarkedIds();
+            const trickyIds = historyManager.getTrickyIds();
+            const focusCount = new Set([...bookmarkedIds, ...trickyIds]).size;
+            document.getElementById('dashTrickyVal').textContent = focusCount;
+
+            const categories = [
+                { nameDe: "Leben in der Demokratie", nameEn: "Living in Democracy", minId: 1, maxId: 100, isBerlin: false },
+                { nameDe: "Geschichte und Verantwortung", nameEn: "History & Responsibility", minId: 101, maxId: 200, isBerlin: false },
+                { nameDe: "Mensch und Gesellschaft", nameEn: "People & Society", minId: 201, maxId: 300, isBerlin: false },
+                { nameDe: "Erweiterte Fragen", nameEn: "Extended Questions", minId: 301, maxId: 310, isBerlin: false },
+                { nameDe: "Land Berlin", nameEn: "State of Berlin", minId: 311, maxId: 320, isBerlin: true }
+            ];
+
+            const catContainer = document.getElementById('dashCategories');
+            catContainer.innerHTML = categories.map(cat => {
+                const catQs = QUESTIONS.filter(q => {
+                    if (cat.isBerlin) return q.berlin;
+                    return !q.berlin && q.id >= cat.minId && q.id <= cat.maxId;
+                });
+                const catTotal = catQs.length;
+                const catMastered = catQs.filter(q => stats[q.id]?.correctCount > 0).length;
+                const catPct = catTotal > 0 ? Math.round((catMastered / catTotal) * 100) : 0;
+                
+                return `
+                    <div class="dash-cat-row">
+                        <div class="dash-cat-header">
+                            <span>${cat.nameDe} <span style="font-size:0.7rem; color:var(--muted); font-style:italic;">(${cat.nameEn})</span></span>
+                            <span>${catMastered}/${catTotal} (${catPct}%)</span>
+                        </div>
+                        <div class="dash-cat-bar">
+                            <div class="dash-cat-fill" style="width: ${catPct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
         function initHomeScreen() {
             renderStudyPlan();
             renderModes();
+            updateProgressDashboard();
         }
 
         function renderStudyPlan() {
@@ -2396,6 +2910,14 @@
             const grid = document.getElementById('modesGrid');
             const pips = (filled, total) => Array.from({length: total}, (_, i) =>
                 `<span class="mode-pip${i < filled ? ' filled' : ''}"></span>`).join('');
+
+            const bookmarkedIds = historyManager.getBookmarkedIds();
+            const trickyIds = historyManager.getTrickyIds();
+            const focusIds = [...new Set([...bookmarkedIds, ...trickyIds])];
+            const focusCount = focusIds.length;
+            const focusDisabled = focusCount === 0 ? ' style="opacity: 0.5; cursor: not-allowed;"' : '';
+            const focusAction = focusCount === 0 ? '' : ' onclick="startMode(\'focus\')"';
+
             grid.innerHTML = `
                 <div class="mode-card" onclick="startMode('allQuestions')">
                     <div class="mode-icon">📋</div>
@@ -2423,6 +2945,15 @@
                     <div class="mode-pips">${pips(3, 3)}</div>
                     <div class="mode-badge badge-red">33 Fragen</div>
                     <div><span class="mode-start-btn">Starten →</span></div>
+                </div>
+                <div class="mode-card" ${focusAction}${focusDisabled}>
+                    <div class="mode-icon">⭐</div>
+                    <h3>Fokus-Modus</h3>
+                    <div class="mode-description">Spaced Repetition: Deine Lesezeichen & fehlerhaften Fragen</div>
+                    <div class="mode-time-est">⏱ Basiert auf Fehlern</div>
+                    <div class="mode-pips">${pips(2, 3)}</div>
+                    <div class="mode-badge badge-gold" style="background:var(--lime);color:#000;">${focusCount} bereit</div>
+                    <div><span class="mode-start-btn" style="${focusCount === 0 ? 'display:none;' : ''}">Starten →</span></div>
                 </div>
             `;
         }
@@ -2481,6 +3012,13 @@
                 state.currentQuestions = [...general, ...berlin];
                 state.examStartTime = Date.now();
                 startTimer();
+            } else if (mode === 'focus') {
+                const bookmarkedIds = historyManager.getBookmarkedIds();
+                const trickyIds = historyManager.getTrickyIds();
+                const focusIds = [...new Set([...bookmarkedIds, ...trickyIds])];
+                state.currentQuestions = QUESTIONS.filter(q => focusIds.includes(q.id));
+                // Shuffle focus deck
+                state.currentQuestions.sort(() => Math.random() - 0.5);
             }
 
             // Show sidebar navigator in non-exam modes, hide in exam
@@ -2510,14 +3048,25 @@
             const q = state.currentQuestions[state.currentQuestionIndex];
             const progress = ((state.currentQuestionIndex + 1) / state.currentQuestions.length) * 100;
 
+            // Cancel active speech
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+            }
+            const speakBtn = document.getElementById('speakBtn');
+            if (speakBtn) {
+                speakBtn.innerHTML = '🔊 Vorlesen';
+                speakBtn.classList.remove('speaking');
+            }
+
             // Update stats
             updateStats();
             updateProgress(progress);
 
             // Question content
             document.getElementById('questionNum').textContent = `Frage ${state.currentQuestionIndex + 1}`;
-            document.getElementById('questionCategory').textContent = q.berlin ? 'Berlin' : 'Allgemein';
-            document.getElementById('questionText').textContent = q.de;
+            const cat = getQuestionCategory(q);
+            document.getElementById('questionCategory').textContent = `${q.berlin ? 'Berlin' : 'Allgemein'} · ${cat.de}`;
+            document.getElementById('questionText').innerHTML = renderTranslatableQuestion(q.de);
             document.getElementById('questionEnglish').innerHTML = `<div>${q.en}</div>`;
             document.getElementById('questionEnglish').classList.remove('show');
 
@@ -2561,6 +3110,14 @@
                     </div>`;
             } else {
                 hintContainer.innerHTML = '';
+            }
+
+            // Bookmark button status
+            const bookmarkBtn = document.getElementById('bookmarkBtn');
+            if (bookmarkBtn) {
+                const isBookmarked = historyManager.isBookmarked(q.id);
+                bookmarkBtn.innerHTML = isBookmarked ? '★ Gemerkt' : '☆ Merken';
+                bookmarkBtn.classList.toggle('active', isBookmarked);
             }
 
             // Bilingual toggle state
@@ -2655,7 +3212,9 @@
             }
 
             // Update score and sub-scores
-            if (idx === q.correct) {
+            const isCorrect = idx === q.correct;
+            historyManager.recordAnswer(q.id, isCorrect);
+            if (isCorrect) {
                 state.correct++;
                 if (q.berlin) state.berlinCorrect++;
                 else state.generalCorrect++;
@@ -2769,7 +3328,8 @@
                 exam:         'Prüfungssimulation beendet! 🎯',
                 allQuestions: 'Lernrunde beendet! 📚',
                 berlin:       'Berlin-Runde beendet! 🏙️',
-                mistakes:     'Fehler-Runde beendet! 🔁'
+                mistakes:     'Fehler-Runde beendet! 🔁',
+                focus:        'Fokus-Runde beendet! ⭐'
             };
             document.getElementById('endTitle').textContent = titles[state.currentMode] || 'Fertig! 🎉';
 
@@ -2785,6 +3345,7 @@
                 const passed = state.correct >= 17;
                 passFail.textContent = passed ? '✓ Bestanden!' : '✗ Nicht bestanden';
                 passFail.classList.add(passed ? 'pass' : 'fail');
+                historyManager.recordExamRun(state.correct, passed);
             }
 
             document.getElementById('correctCount').textContent = state.correct;
@@ -2940,10 +3501,25 @@
             }
         });
 
+        document.getElementById('speakBtn').addEventListener('click', () => {
+            speakQuestion();
+        });
+
+        document.getElementById('bookmarkBtn').addEventListener('click', () => {
+            const q = state.currentQuestions[state.currentQuestionIndex];
+            const isBookmarked = historyManager.toggleBookmark(q.id);
+            const btn = document.getElementById('bookmarkBtn');
+            btn.innerHTML = isBookmarked ? '★ Gemerkt' : '☆ Merken';
+            btn.classList.toggle('active', isBookmarked);
+        });
+
         document.getElementById('quitBtn').addEventListener('click', () => {
             if (confirm('Quiz beenden und zur Startseite? Dein Fortschritt geht verloren.')) {
                 if (state.timerInterval) clearInterval(state.timerInterval);
                 document.getElementById('timer').style.display = 'none';
+                if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();
+                updateProgressDashboard();
+                renderModes();
                 showScreen('home');
             }
         });
@@ -2953,6 +3529,9 @@
         });
 
         document.getElementById('homeBtn').addEventListener('click', () => {
+            if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();
+            updateProgressDashboard();
+            renderModes();
             showScreen('home');
         });
 
@@ -2985,6 +3564,15 @@
         // ============================================================
         initTheme();
         initHomeScreen();
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registered successfully:', reg.scope))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
 
         document.getElementById('sidebarToggle').addEventListener('click', function() {
             if (window.innerWidth > 720) return;
