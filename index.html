@@ -6,7 +6,7 @@
     <title>Einbürgerungstest — kostenloser Test, 300 Fragen + alle 16 Bundesländer (DE/EN)</title>
     <meta name="description" content="Kostenlos für den Einbürgerungstest üben: alle 300 amtlichen Fragen plus die 10 Landesfragen jedes Bundeslandes (460 gesamt), Prüfungssimulation, Themen-Training, Smart Review (Spaced Repetition) und Erklärungen auf Deutsch und Englisch. Free German citizenship test practice, all 16 federal states.">
     <meta name="keywords" content="Einbürgerungstest, Leben in Deutschland, Bundesland, Berlin, Bayern, Test, Quiz, deutsche Staatsbürgerschaft, German citizenship test, Prüfung">
-    <meta name="author" content="EIB Quiz">
+    <meta name="author" content="Suhas Pala">
     <meta name="theme-color" content="#FFFFFF" id="themeColorMeta">
     <link rel="canonical" href="https://thelivinsine.github.io/eib-quiz/">
     <!-- Pre-paint theme guard: default = light "paper" (the signature bento look);
@@ -54,7 +54,8 @@
       "inLanguage": ["de", "en"],
       "learningResourceType": "Quiz",
       "isAccessibleForFree": true,
-      "url": "https://thelivinsine.github.io/eib-quiz/"
+      "url": "https://thelivinsine.github.io/eib-quiz/",
+      "author": { "@type": "Person", "name": "Suhas Pala", "url": "https://suhaspala.com" }
     }
     </script>
 
@@ -2171,8 +2172,8 @@
             justify-content: space-between; gap: var(--space-sm);
             color: var(--muted);
         }
-        .footer-legal a { color: inherit; text-decoration: underline; }
-        .footer-legal a:hover { color: var(--accent-text); }
+        .footer-bar a { color: inherit; text-decoration: underline; }
+        .footer-bar a:hover { color: var(--accent-text); }
         .footer-lockup { display: flex; flex-direction: column; line-height: var(--lh-tight); }
         .footer-name {
             font-family: var(--font-head); font-weight: 700; font-size: var(--fs-base);
@@ -3570,7 +3571,8 @@
              what the app does not own, because a blanket "all rights reserved" over the
              official catalogue text and a CC BY-SA photograph would simply be false. -->
         <div class="footer-bar">
-            <p data-i18n="footer.copyright"></p>
+            <!-- The author's name is markup, not I18N: a name is not translated. -->
+            <p><span data-i18n="footer.copyright"></span> · <a href="https://suhaspala.com" target="_blank" rel="author noopener">Suhas Pala</a></p>
             <p class="footer-legal" data-i18n-html="footer.legal"></p>
         </div>
     </footer>
