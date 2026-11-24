@@ -2,6 +2,17 @@
 
 _Last updated: 2026-10-16 (live commit `fb94343`; ar, tr and ru audited by AI the way the seven were, PR #121; source errors in `questions.json` fixed against the BAMF catalogue — Q72, Q73 and Q213 had out-of-date right answers — and retranslated in all ten languages in `8614c17`, PR #120; the seven hidden languages audited by AI and released unreviewed, PR #119; the glossary as a grid of term cards shipped in `b7d9f8d` on 2026-10-09, direct to `main`; a feedback button after genauly.de's, sending to Genauly's `submit-feedback` function, PR #118; Q281 and Q285 explanations retranslated in the seven hidden languages in `f115a6a`, PR #117; Polish place names in `7fe16c8`, PR #116; Q281 and Q285 retranslated in ar, tr and ru in `7b0b369`, PR #115; seven more languages added, hidden, PR #114; Q281 and Q285 corrected in `24cb5d3`, PR #113; ar, ru and tr live unreviewed since `ff5a937`; CI on every PR since `b9d08cf`)_
 
+## Repository readiness, 24 November 2026
+
+The root README now gives visitors a demo, local setup, checks, source credits and the
+unreviewed-translation limitation. Canonical, social-preview and structured-data URLs now
+use `palasuhas`; the old Pages address no longer represents this repository. Licensing is
+unchanged at the owner's request. No question, translation, layout or progress logic changed.
+Validation: 41 automated tests passed, all 460 question records passed validation, and the
+inline scripts, JSON-LD and service worker passed syntax checks. The resulting Pages
+deployment is recorded in the readiness PR. Older entries
+below retain their original dates and checks; they are not a fresh verification of the app.
+
 ## Project status
 
 Vanilla HTML/CSS/JS quiz for the German citizenship test, all 16 Bundesländer, served by
