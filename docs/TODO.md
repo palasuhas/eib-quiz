@@ -1426,10 +1426,10 @@ commit at close: **`3ea3ce1`** (`Split the app onto its own Practise screen (#91
 
 | PR | What it did |
 |---|---|
-| [#88](https://github.com/thelivinsine/eib-quiz/pull/88) | Dropped the hero's four fact chips; the two hero columns centre against each other with no new CSS |
-| [#89](https://github.com/thelivinsine/eib-quiz/pull/89) | Tightened the mode band, put the estimate on the count's line behind a clock glyph, hardened the service-worker update path |
-| [#90](https://github.com/thelivinsine/eib-quiz/pull/90) | Kept the worker alive when CacheStorage fails — found while verifying #89 in a real browser |
-| [#91](https://github.com/thelivinsine/eib-quiz/pull/91) | Split the app onto `#practiseScreen`; removed About/FAQs; made the nav's Practise link a primary pill |
+| [#88](https://github.com/palasuhas/eib-quiz/pull/88) | Dropped the hero's four fact chips; the two hero columns centre against each other with no new CSS |
+| [#89](https://github.com/palasuhas/eib-quiz/pull/89) | Tightened the mode band, put the estimate on the count's line behind a clock glyph, hardened the service-worker update path |
+| [#90](https://github.com/palasuhas/eib-quiz/pull/90) | Kept the worker alive when CacheStorage fails — found while verifying #89 in a real browser |
+| [#91](https://github.com/palasuhas/eib-quiz/pull/91) | Split the app onto `#practiseScreen`; removed About/FAQs; made the nav's Practise link a primary pill |
 
 A dark-mode pass over the Practise page closed the session: rendered in real Chrome with a
 finished round and a half-played one seeded, every text element measured against the
@@ -1531,7 +1531,7 @@ findings raised, all five applied as the smallest edit that fixes them. No featu
 ## Session close (2026-09-21, the dark theme re-derived and the nav link de-buttoned)
 
 Live at close: branch **`ui/dark-ladder-and-nav-link`**, commit **`b775b9e`**, pushed and
-opened as [#93](https://github.com/thelivinsine/eib-quiz/pull/93) — **waiting, not merged.** A
+opened as [#93](https://github.com/palasuhas/eib-quiz/pull/93) — **waiting, not merged.** A
 substantial ending: it re-derives a whole theme, and the *not verified* list below is what a
 reviewer is being asked to weigh before it reaches production.
 
@@ -1916,7 +1916,7 @@ Four were comment faults and two were real:
 
 ### Live
 
-PR [#95](https://github.com/thelivinsine/eib-quiz/pull/95), squash-merged to `main` as
+PR [#95](https://github.com/palasuhas/eib-quiz/pull/95), squash-merged to `main` as
 **`5dd5bf2`** after the review above. `docs/Mockups/ui/where-you-stand.png` and
 `logo-kit.png` are tracked with it; the logo kit is **not** shipped — it draws a different
 brand mark, a stroked icon library and pages that were deliberately removed.
@@ -2077,7 +2077,7 @@ against the shipped string.
 
 ### Live
 
-PR [#96](https://github.com/thelivinsine/eib-quiz/pull/96), squash-merged to `main` as
+PR [#96](https://github.com/palasuhas/eib-quiz/pull/96), squash-merged to `main` as
 **`6014457`**. Two departures from the mockup were flagged to the user and left: the
 heading at 28px against its ~31 (no rung between `--fs-2xl` and `--fs-3xl`), and pill
 buttons where both mockups draw ~13px rounded rects — an app-wide change, not a one-card
@@ -2156,7 +2156,7 @@ was tried first and rejected**: it fixes the labels and starves the verdict to ~
 
 ### Live
 
-PR [#97](https://github.com/thelivinsine/eib-quiz/pull/97), squash-merged to `main` as
+PR [#97](https://github.com/palasuhas/eib-quiz/pull/97), squash-merged to `main` as
 **`e188240`**. The resume button's 4.54 hovered ratio was reported and left as a design
 decision, not fixed.
 
@@ -2254,7 +2254,7 @@ rewritten. `donut()` and `ev()` keep five-plus other callers, so nothing else we
 ### Live
 
 Committed and pushed straight to `main` as
-[`bc261c6`](https://github.com/thelivinsine/eib-quiz/commit/bc261c6) — **no PR**, on the
+[`bc261c6`](https://github.com/palasuhas/eib-quiz/commit/bc261c6) — **no PR**, on the
 user's explicit instruction.
 
 ---
@@ -2366,7 +2366,7 @@ which is not clearance; hence `--fs-sm` in the 620px block (175.4 in 189).
 ### Live
 
 Squash-merged to `main` and pushed as
-[`fc9e8e7`](https://github.com/thelivinsine/eib-quiz/commit/fc9e8e7) — **no PR**, on the
+[`fc9e8e7`](https://github.com/palasuhas/eib-quiz/commit/fc9e8e7) — **no PR**, on the
 user's explicit instruction after the diff review, which is how a tweak ships here
 (`CLAUDE.md`'s "ship via PR + merge" is applied by SIZE). The work was committed on
 `ui/where-you-stand-type` first, reviewed there — that review is what caught the four
@@ -2658,7 +2658,7 @@ two-word seg.
 ### Live
 
 Squash-merged to `main` and pushed as
-[`d7d53be`](https://github.com/thelivinsine/eib-quiz/commit/d7d53be) — **no PR**, on the
+[`d7d53be`](https://github.com/palasuhas/eib-quiz/commit/d7d53be) — **no PR**, on the
 user's instruction, which is how a tweak ships here. The eleven commits were reviewed on
 `ui/dash-phone-row` first (that review is what caught the stale comments and the two silent
 no-ops recorded above); the branch is deleted.
@@ -2762,7 +2762,7 @@ bands, #101 logo kit, #102 practise-mode cards). None was open; the last recorde
 was #96/#97. It found fourteen things, and all fourteen are fixed here. **The same session
 wrote the fixes it reviewed**, so no second reader has seen them.
 
-Live commit: **[`9b98fcb`](https://github.com/thelivinsine/eib-quiz/commit/9b98fcb)**. It was squash-merged to `main` with **no PR**, on the
+Live commit: **[`9b98fcb`](https://github.com/palasuhas/eib-quiz/commit/9b98fcb)**. It was squash-merged to `main` with **no PR**, on the
 user's instruction, from `fix/review-98-102`, which is deleted.
 
 ### The two that could stop the app booting
@@ -2869,9 +2869,9 @@ and dark.
 
 ## Session close (2026-09-23, buttons, header toggles, Where-you-stand ring)
 
-This work was substantial, so it ended with a PR: **thelivinsine/eib-quiz#103** from
+This work was substantial, so it ended with a PR: **palasuhas/eib-quiz#103** from
 `header-toggles-buttons`. It was reviewed and fixed in a follow-up session (below) and
-**merged** as [`2b05bc4`](https://github.com/thelivinsine/eib-quiz/commit/2b05bc4). The PR
+**merged** as [`2b05bc4`](https://github.com/palasuhas/eib-quiz/commit/2b05bc4). The PR
 body lists what was verified and what was not. The open items are: dark-mode buttons were not seen rendered, no hover state was seen hovered,
 only Chromium was tested (Safari's SVG `transform-origin` on the ring's knob in particular),
 and the scheme icons were drawn by eye because the reference screenshot never reached disk.
@@ -2882,7 +2882,7 @@ and the scheme icons were drawn by eye because the reference screenshot never re
 `header-toggles-buttons`. **The same session wrote the fixes it reviewed**, so no second
 reader has seen them.
 
-Live commit: **[`2b05bc4`](https://github.com/thelivinsine/eib-quiz/commit/2b05bc4)**, #103 squash-merged with the fixes on it, on the
+Live commit: **[`2b05bc4`](https://github.com/palasuhas/eib-quiz/commit/2b05bc4)**, #103 squash-merged with the fixes on it, on the
 user's go-ahead. `header-toggles-buttons` is deleted. No new PR was opened.
 
 - The ring's arc is plain `--accent`, and so is the knob's ring. The gradient could not
@@ -2984,7 +2984,7 @@ No PR was open, so `/code-review` at xhigh ran over #103 plus `9f6044b`, `a2203f
 `e0e058c`. It found ten things and all ten are fixed. **The same session wrote the fixes it
 reviewed**, so no second reader has seen them.
 
-Live commit: **[`b1328ff`](https://github.com/thelivinsine/eib-quiz/commit/b1328ff)**,
+Live commit: **[`b1328ff`](https://github.com/palasuhas/eib-quiz/commit/b1328ff)**,
 squash-merged straight to `main` from `review-103-fixes` on the user's go-ahead ("no new PR
 needed"). The branch was never pushed and is deleted.
 
@@ -3087,7 +3087,7 @@ string; the three scheme modes survive a reload.
   The quiz readouts wrapped at 320 as soon as the counts reached two digits (the row needs
   up to 310px, the screen had 256): the row drops its phone inset and, below 342px, the
   score's word, and now holds one line at 320 / 343 / 360 in both languages.
-- **PR #104 is squash-merged to `main`** as **[`e5bb588`](https://github.com/thelivinsine/eib-quiz/commit/e5bb588)**, which Pages publishes. The worktree `../EIB-typography` and the `typography-responsive` branch (local and remote) are deleted. Main's `b1328ff` was merged into the branch first;
+- **PR #104 is squash-merged to `main`** as **[`e5bb588`](https://github.com/palasuhas/eib-quiz/commit/e5bb588)**, which Pages publishes. The worktree `../EIB-typography` and the `typography-responsive` branch (local and remote) are deleted. Main's `b1328ff` was merged into the branch first;
   the only conflicts were the nav rule, where the branch's no-underline version won, and this
   file. **The review's fixes were written by the session that reviewed them**, so no second
   reader has seen `e867ec9`. After `e867ec9` the full role audit was not re-run; it would flag
@@ -3118,7 +3118,7 @@ On request, on branch `ui/compact-buttons-readout-icons` (worktree `../EIB-compa
   identical after line-ending normalisation, so no `CACHE` bump.
 - Verified in the pane at 1280 / 375 / 320, both languages, light and dark: no horizontal
   overflow on Home or Practise; quiz and results screens still 812/812 at 375.
-- Squash-merged as **[`a9c06ae`](https://github.com/thelivinsine/eib-quiz/commit/a9c06ae)**
+- Squash-merged as **[`a9c06ae`](https://github.com/palasuhas/eib-quiz/commit/a9c06ae)**
   (#105); `a85dbc6` (overview note and label, lower tagline, numbers band at the fold)
   followed it straight onto `main`.
 
@@ -3148,7 +3148,7 @@ themes, a **2px lift** on hover, **all four** extras, **PR + squash-merge**.
   - reduced motion hides nothing.
 - **Tests**: `contrast` + `scale` 28/28, `validate.js` OK, and `node --check` on both the
   script and `sw.js`.
-- Squash-merged as **[`d0691fd`](https://github.com/thelivinsine/eib-quiz/commit/d0691fd)**
+- Squash-merged as **[`d0691fd`](https://github.com/palasuhas/eib-quiz/commit/d0691fd)**
   (#106). The Pages build reported `built`, and a cache-busted fetch returned the new
   build. The bare URL was still on the old copy (the edge's `max-age=600`) when last
   checked.
@@ -3165,8 +3165,8 @@ themes, a **2px lift** on hover, **all four** extras, **PR + squash-merge**.
 
 ## Session close (2026-09-23, review of #106, the quiz navigator aligned, ring from the bottom)
 
-Live commit: **[`5bcbbd5`](https://github.com/thelivinsine/eib-quiz/commit/5bcbbd5)** (#108),
-over [`f6498c0`](https://github.com/thelivinsine/eib-quiz/commit/f6498c0) (#107). Both
+Live commit: **[`5bcbbd5`](https://github.com/palasuhas/eib-quiz/commit/5bcbbd5)** (#108),
+over [`f6498c0`](https://github.com/palasuhas/eib-quiz/commit/f6498c0) (#107). Both
 squash-merged; the Pages build for `5bcbbd5` reports `built`.
 - **Review of #106** (xhigh, eight findings, all fixed in #108):
   - the Practise entrance replayed on every repaint, so a state pick blanked and re-rose
@@ -3222,14 +3222,14 @@ squash-merged; the Pages build for `5bcbbd5` reports `built`.
 
 ## Session close (2026-09-24, the logo block)
 
-Live commit: **[`cde9dc9`](https://github.com/thelivinsine/eib-quiz/commit/cde9dc9)**, over
-[`ea404ec`](https://github.com/thelivinsine/eib-quiz/commit/ea404ec),
-[`a3e1c5b`](https://github.com/thelivinsine/eib-quiz/commit/a3e1c5b),
-[`5bc0578`](https://github.com/thelivinsine/eib-quiz/commit/5bc0578),
-[`06d71bc`](https://github.com/thelivinsine/eib-quiz/commit/06d71bc),
-[`572b820`](https://github.com/thelivinsine/eib-quiz/commit/572b820),
-[`bddff1c`](https://github.com/thelivinsine/eib-quiz/commit/bddff1c) and
-[`875a88f`](https://github.com/thelivinsine/eib-quiz/commit/875a88f). All eight were
+Live commit: **[`cde9dc9`](https://github.com/palasuhas/eib-quiz/commit/cde9dc9)**, over
+[`ea404ec`](https://github.com/palasuhas/eib-quiz/commit/ea404ec),
+[`a3e1c5b`](https://github.com/palasuhas/eib-quiz/commit/a3e1c5b),
+[`5bc0578`](https://github.com/palasuhas/eib-quiz/commit/5bc0578),
+[`06d71bc`](https://github.com/palasuhas/eib-quiz/commit/06d71bc),
+[`572b820`](https://github.com/palasuhas/eib-quiz/commit/572b820),
+[`bddff1c`](https://github.com/palasuhas/eib-quiz/commit/bddff1c) and
+[`875a88f`](https://github.com/palasuhas/eib-quiz/commit/875a88f). All eight were
 committed straight to `main` on request — no PRs: small tweaks, iterated live.
 - **The header lockup**, on request, in four passes:
   - "EIB Quiz" and the tagline are one group (no gap between them) centred on the mark,
@@ -3291,7 +3291,7 @@ moves both baselines exactly 1px (the tagline's 2.45 -> 1.45px off the mark's bo
 
 ## Glossary as a grid of term cards (2026-10-09)
 
-Commit **[`b7d9f8d`](https://github.com/thelivinsine/eib-quiz/commit/b7d9f8d)**, straight
+Commit **[`b7d9f8d`](https://github.com/palasuhas/eib-quiz/commit/b7d9f8d)**, straight
 to `main` with no PR, from another session that left no entry here. This one was
 written on 2026-10-10 from the commit itself.
 - **The glossary on the Practise page opens into a grid of cards**, on request, from a
@@ -3321,10 +3321,10 @@ no test runs.
 
 ## Session close (2026-10-10, the link-preview card)
 
-Live commit: **[`1120e75`](https://github.com/thelivinsine/eib-quiz/commit/1120e75)**,
+Live commit: **[`1120e75`](https://github.com/palasuhas/eib-quiz/commit/1120e75)**,
 squash-merged from `og-card-current-ui` straight to `main` on request after a diff
 review, without a PR. It sits on
-[`b7d9f8d`](https://github.com/thelivinsine/eib-quiz/commit/b7d9f8d), the glossary
+[`b7d9f8d`](https://github.com/palasuhas/eib-quiz/commit/b7d9f8d), the glossary
 grid recorded above.
 - **The favicon and app icons were already current**: `favicon.svg` matches the logo
   kit's file except for a trailing newline, the four `img/icons/*.png` files are
