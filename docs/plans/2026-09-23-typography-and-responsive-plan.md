@@ -20,7 +20,7 @@ phone type step (moved from 620 to 700px in the final review).
 
 ## Global Constraints
 
-- Work happens in the worktree `C:\Users\Suhas Pala\Documents\AI projects\EIB-typography` on branch `typography-responsive`. Never edit the main folder's `index.html`; another session serves it.
+- Work happens in the worktree `<projects folder>\EIB-typography` on branch `typography-responsive`. Never edit the main folder's `index.html`; another session serves it.
 - Keep Bricolage Grotesque + Inter and the existing `--fs-*` steps; no new typefaces, no general size increase.
 - Every `--type-*` token is exactly `<weight> var(--fs-*)/var(--lh-*) var(--font-*)`.
 - **`font:` is the FIRST declaration in any rule that takes a role.** The shorthand resets `font-variant-numeric`, `font-kerning` and `line-height`; anything declared before it is lost.
@@ -44,7 +44,7 @@ phone type step (moved from 620 to 700px in the final review).
 
 ## Shared verification tools (used by several tasks)
 
-**Server.** Temporarily add this configuration to the MAIN folder's `.claude/launch.json` (it is where the preview tool reads configs; it serves the worktree via `--directory`), start it with `preview_start {name: "eib-typo"}`, and **revert the file before finishing** (`git -C "C:\Users\Suhas Pala\Documents\AI projects\EIB" checkout -- .claude/launch.json`). Never commit it.
+**Server.** Temporarily add this configuration to the MAIN folder's `.claude/launch.json` (it is where the preview tool reads configs; it serves the worktree via `--directory`), start it with `preview_start {name: "eib-typo"}`, and **revert the file before finishing** (`git -C "<projects folder>\EIB" checkout -- .claude/launch.json`). Never commit it.
 
 ```json
 { "name": "eib-typo", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "8778", "--directory", "../EIB-typography"], "port": 8778 }
@@ -756,7 +756,7 @@ plus the `node --check` of the extracted script (Task 5 Step 5). Expected: valid
 - [ ] **Step 5: Revert the temporary server config and commit**
 
 ```bash
-git -C "C:\Users\Suhas Pala\Documents\AI projects\EIB" checkout -- .claude/launch.json
+git -C "<projects folder>\EIB" checkout -- .claude/launch.json
 git add CLAUDE.md docs/TODO.md docs/plans/2026-09-23-typography-and-responsive-design.md
 git commit -m "Docs: type roles and the tablet/phone layout" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 ```
