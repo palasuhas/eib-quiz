@@ -75,7 +75,7 @@ testing a real session, keyboard navigation, offline behavior, and mobile layout
 The app is plain HTML, CSS and JavaScript. `index.html` holds the interface, `questions.json`
 holds the question bank, `i18n/` holds additional translations, and `sw.js` handles offline
 caching. [Current work](docs/TODO.md), [language reviews](i18n/README.md), and
-[contributor instructions](CLAUDE.md) explain the remaining work and design decisions.
+[contributor instructions](AGENTS.md) explain the remaining work and design decisions.
 
 No new reuse license is granted by this readiness update. Third-party questions, images,
 fonts and other assets retain their own terms; see the attribution files before reusing them.

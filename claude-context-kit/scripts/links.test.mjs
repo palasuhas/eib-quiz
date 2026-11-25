@@ -76,7 +76,7 @@ test("every file.md#anchor pointer resolves to a heading that exists", () => {
       checked++;
 
       /* Relative to the referring file. A bare name also resolves from the repo root — that is
-       * how the `CLAUDE.md#…` pointers are written — but a pointer carrying a path does not get
+       * how the `AGENTS.md#…` pointers are written — but a pointer carrying a path does not get
        * that second chance, so one file has one spelling and Ctrl-click behaves the same way
        * on every line of it. */
       const candidates = [path.join(path.dirname(f), target).split(path.sep).join("/")];

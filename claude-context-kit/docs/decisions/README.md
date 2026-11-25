@@ -1,7 +1,7 @@
 # Decisions
 
 Why the rules are what they are. Every entry is the same three things: **the decision, the reason,
-and what it cost.** The rules themselves live in [`../../CLAUDE.md`](../../CLAUDE.md), stated as
+and what it cost.** The rules themselves live in [`../../AGENTS.md`](../../AGENTS.md), stated as
 rules with no argument attached; this folder is the argument.
 
 Words this project uses in a particular way are defined once in

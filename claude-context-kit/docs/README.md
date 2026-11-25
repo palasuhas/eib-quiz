@@ -12,7 +12,7 @@ Everything else is here to answer one question in one hop. Find your question be
 
 | | |
 |---|---|
-| [`../CLAUDE.md`](../CLAUDE.md) | **The rules, stated as rules.** No reasoning, no exceptions buried in prose. |
+| [`../AGENTS.md`](../AGENTS.md) | **The rules, stated as rules.** No reasoning, no exceptions buried in prose. |
 | [`decisions/`](decisions/) | **Why each rule exists** — the decision, the reason, and what it cost. One file per topic, [indexed here](decisions/README.md). |
 | [`glossary.md`](glossary.md) | The words this project uses in a particular way. |
 

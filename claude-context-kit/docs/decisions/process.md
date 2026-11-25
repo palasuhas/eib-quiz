@@ -3,7 +3,7 @@
 How a session works, what gets written down, and what is never touched. **Every entry below was
 learned by getting it wrong once**, on a previous project, and each is carried here because the
 mistake was about *working*, not about that project's subject matter. The rules themselves belong in
-[`../../CLAUDE.md`](../../CLAUDE.md) → *Working with me*, *Hard constraints* and *Concluding a
+[`../../AGENTS.md`](../../AGENTS.md) → *Working with me*, *Hard constraints* and *Concluding a
 session*; this file is the argument behind them.
 
 Every entry is the same three things: **the decision, the reason, and what it cost.** Append new
