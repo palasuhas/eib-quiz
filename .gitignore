@@ -13,3 +13,8 @@ work/
 # tracked; the 11MB of crops behind it is local-only and not worth git history.
 docs/Mockups/archive/*
 !docs/Mockups/archive/README.md
+
+# Third-party skills synced from agent-context-kit without a licence to republish: kept local-only.
+.claude/skills/design-doc-mermaid/
+.claude/skills/web-design-guidelines/
+.claude/skills/writing-guidelines/
