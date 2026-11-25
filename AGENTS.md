@@ -4,8 +4,10 @@ This repo was changed on GitHub on 2026-11-25. The agent rules moved from `CLAUD
 file (`CLAUDE.md` is now one line that loads it), and the skills, commands and plugins this repo
 uses now live in `.claude/` instead of on the machine. Before any other work:
 
-1. **This repo's history was rewritten on 2026-11-25** (personal emails replaced by the GitHub
-   no-reply address). Never `git pull` a copy made before that: it would merge the old history back.
+1. **This repo's history was rewritten twice on 2026-11-25**: first to replace personal emails with
+   the GitHub no-reply address, then late that evening to remove seven personal screenshots and an
+   email in `ATTRIBUTIONS.md`. The rewritten `main` starts from `57aff49`. Never `git pull` a copy
+   whose `main` does not contain `57aff49`: it would merge the old history back.
    Save any uncommitted work, then `git fetch` and `git reset --hard origin/<default branch>`, and
    rebuild any old local branch with `git cherry-pick` onto it. Never push an old branch.
    The three third-party skills listed in `.gitignore` are local-only here: the sync brings them.
